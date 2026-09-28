@@ -1,0 +1,27 @@
+{
+  "name": "tlu-vp",
+  "version": "1.0.0",
+  "description": "Veebiprogrammeerimise tundides tehtud veeb",
+  "homepage": "https://github.com/Beeak/tlu-vp#readme",
+  "bugs": {
+    "url": "https://github.com/Beeak/tlu-vp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beeak/tlu-vp.git"
+  },
+  "license": "ISC",
+  "author": "Henry Kalvi Kaalma",
+  "type": "commonjs",
+  "main": "index.js",
+  "keywords": [
+    "node.js",
+    "tlu"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
