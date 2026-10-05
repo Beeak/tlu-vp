@@ -17,6 +17,8 @@ app.set("view engine", "ejs");
 //maaran uhe paris kataloogi virtuaalses serveris kattesaadavaks
 app.use(express.static("public"));
 
+app.use(express.urlencoded({ extended: false }));
+
 //marsuudid
 app.get("/", (req, res) => {
   //   res.send("Express.js laks kaima ja serveerib meile veebi.");
@@ -42,14 +44,33 @@ app.get("/regvisit", (req, res) => {
   res.render("regvisit");
 });
 
+app.get("/lastvisit", async (req, res) => {
+  const visits = (await fs.readFile(regTextRef, "utf8")).split(";");
+  const [name, date, time] = visits[visits.length - 2].split(",");
+
+  res.render("lastvisit", {
+    lastVisit: `Viimati registreeriti külastus ${date}, kell ${time} kui seda tegi ${name}`,
+  });
+});
+
+app.get("/info", (req, res) => {
+  res.render("info");
+});
+
 app.post("/regvisit", async (req, res) => {
   try {
+    const dateNow = dateET.fullDate();
+    const timeNow = dateET.fullTime();
+
     await fs.open(regTextRef, "a");
-    await fs.appendFile(regTextRef, req.body.nameInput + ";");
+    await fs.appendFile(
+      regTextRef,
+      req.body.nameInput + "," + dateNow + "," + timeNow + "," + ";",
+    );
     res.render("regvisit");
   } catch (err) {
     console.log(err);
-    res.render("regivsit");
+    res.render("regvisit");
   }
 });
 
