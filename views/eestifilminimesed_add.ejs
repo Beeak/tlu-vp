@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="utf-8" />
+    <title>Henry Kalvi Kaalma, veebiprogrammeerimine</title>
+  </head>
+  <body>
+    <img src="img/veebiprogrammeerimine_2026_TA.png" alt="" />
+    <h1>Henry Kalvi Kaalma, veebiprogrammeerimine</h1>
+    <p>
+      See leht on loodud veebiprogrammeerimise kursusel
+      <a href="https://www.tlu.ee">Tallinna Ülikoolis</a> ning ei sisalda
+      tõsiseltvõetavat sisu!
+    </p>
+    <h1>Eesti filmiga seotud inimesed</h1>
+    <hr />
+    <p>Siin lehel saab Eesti filmiga seotud inimesi lisada andmebaasi.</p>
+    <hr />
+    <ul>
+      <li><a href="/eestifilm">Eesti film</a></li>
+      <li><a href="/">Tagasi avalehele</a></li>
+    </ul>
+    <form method="POST">
+      <label for="firstNameInput">Eesnimi</label>
+      <input
+        id="firstNameInput"
+        type="text"
+        name="firstNameInput"
+        placeholder="Filmiinimese eesnimi...."
+        required
+      />
+      <br />
+      <label for="lastNameInput">Perekonnanimi</label>
+      <input
+        id="lastNameInput"
+        type="text"
+        name="lastNameInput"
+        placeholder="Filmiinimese perekonnanimi...."
+        required
+      />
+      <br />
+      <label for="bornInput">Filmiinimese sunnikuupaev</label>
+      <input id="bornInput" name="bornInput" type="date" required />
+      <br />
+      <label for="deceasedInput">Filmiinimese surmakuupaev</label>
+      <input id="deceasedInput" name="deceasedInput" type="date" />
+      <br />
+      <input
+        id="personSubmit"
+        type="submit"
+        name="personSubmit"
+        value="Salvesta"
+      />
+    </form>
+    <p><%= notice || "" %></p>
+  </body>
+</html>

@@ -12,20 +12,21 @@
       <a href="https://www.tlu.ee">Tallinna Ülikoolis</a> ning ei sisalda
       tõsiseltvõetavat sisu!
     </p>
-    <p>Esialgu tutvusime lihtsalt HTML keelega, peatselt programmeerime.</p>
+    <h1>Eesti filmiga seotud inimesed</h1>
     <hr />
-    <p>Leht avati: <%= dayNow %>, <%= dateNow %>, <%= timeNow %></p>
-
+    <p>Siin lehel on naha Eesti filmiga seotud inimesi.</p>
+    <hr />
     <ul>
-      <li><a href="/vanasona">Tänane vanasõna</a></li>
-
-      <li><a href="/info">Info minu kohta</a></li>
-
-      <li><a href="/regvisit">Kulastuste registreerimine</a></li>
-
-      <li><a href="/lastvisit">Viimane kulastus</a></li>
-
-      <li><a href="/eestifilm">Eesti filmid</a></li>
+      <li><a href="/eestifilm">Eesti film</a></li>
+      <li><a href="/">Tagasi avalehele</a></li>
     </ul>
+    <ol>
+      <% personList.forEach(function(person) { %>
+      <li>
+        <%= person.first_name %> <%= person.last_name %>, sundinud <%=
+        person.born %>
+      </li>
+      <% }); %>
+    </ol>
   </body>
 </html>
